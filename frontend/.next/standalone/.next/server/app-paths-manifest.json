@@ -1,0 +1,22 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/docs/auth/page": "app/docs/auth/page.js",
+  "/docs/balance/page": "app/docs/balance/page.js",
+  "/docs/compliance/page": "app/docs/compliance/page.js",
+  "/docs/customers/page": "app/docs/customers/page.js",
+  "/docs/disputes/page": "app/docs/disputes/page.js",
+  "/docs/getting-started/page": "app/docs/getting-started/page.js",
+  "/docs/kyc/page": "app/docs/kyc/page.js",
+  "/docs/page": "app/docs/page.js",
+  "/docs/settlements/page": "app/docs/settlements/page.js",
+  "/docs/splits/page": "app/docs/splits/page.js",
+  "/docs/subscriptions/page": "app/docs/subscriptions/page.js",
+  "/docs/threeds/page": "app/docs/threeds/page.js",
+  "/docs/tokens/page": "app/docs/tokens/page.js",
+  "/docs/transactions/page": "app/docs/transactions/page.js",
+  "/docs/transfers/page": "app/docs/transfers/page.js",
+  "/docs/webhooks/page": "app/docs/webhooks/page.js",
+  "/page": "app/page.js",
+  "/playground/page": "app/playground/page.js"
+}

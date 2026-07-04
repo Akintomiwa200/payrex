@@ -1,0 +1,22 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/docs/auth/page": "/docs/auth",
+  "/docs/balance/page": "/docs/balance",
+  "/docs/compliance/page": "/docs/compliance",
+  "/docs/customers/page": "/docs/customers",
+  "/docs/disputes/page": "/docs/disputes",
+  "/docs/getting-started/page": "/docs/getting-started",
+  "/docs/kyc/page": "/docs/kyc",
+  "/docs/page": "/docs",
+  "/docs/settlements/page": "/docs/settlements",
+  "/docs/splits/page": "/docs/splits",
+  "/docs/subscriptions/page": "/docs/subscriptions",
+  "/docs/threeds/page": "/docs/threeds",
+  "/docs/tokens/page": "/docs/tokens",
+  "/docs/transactions/page": "/docs/transactions",
+  "/docs/transfers/page": "/docs/transfers",
+  "/docs/webhooks/page": "/docs/webhooks",
+  "/page": "/",
+  "/playground/page": "/playground"
+}

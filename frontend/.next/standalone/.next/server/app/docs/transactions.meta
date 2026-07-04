@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/docs/layout,_N_T_/docs/transactions/layout,_N_T_/docs/transactions/page,_N_T_/docs/transactions"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/docs/transactions/__PAGE__",
+    "/docs/transactions",
+    "/docs",
+    "/_index",
+    "/_head"
+  ]
+}

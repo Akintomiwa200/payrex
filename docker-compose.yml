@@ -1,0 +1,84 @@
+version: '3.8'
+
+services:
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      NODE_ENV: production
+      PORT: '8080'
+      DB_HOST: postgres
+      DB_PORT: '5432'
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      DB_DATABASE: finance_gateway
+      CORE_ENGINE_URL: http://core-engine:9090
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY:-change-me-in-production-32char}
+      JWT_SECRET: ${JWT_SECRET:-change-me-jwt-secret}
+      REDIS_URL: redis://redis:6379
+      CLOUDINARY_CLOUD_NAME: ${CLOUDINARY_CLOUD_NAME:-}
+      CLOUDINARY_API_KEY: ${CLOUDINARY_API_KEY:-}
+      CLOUDINARY_API_SECRET: ${CLOUDINARY_API_SECRET:-}
+      IP_WHITELIST: ${IP_WHITELIST:-}
+      IP_BLACKLIST: ${IP_BLACKLIST:-}
+      THROTTLE_TTL: '60'
+      THROTTLE_LIMIT: '30'
+      CORS_ORIGINS: '*'
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  core-engine:
+    build:
+      context: ./core-engine
+      dockerfile: Dockerfile
+    ports:
+      - "9090:9090"
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/finance_gateway
+      HOST: 0.0.0.0
+      PORT: '9090'
+      RUST_LOG: info
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY:-change-me-in-production-32char}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: finance_gateway
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  pgdata:

@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/docs/layout,_N_T_/docs/settlements/layout,_N_T_/docs/settlements/page,_N_T_/docs/settlements"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/docs/settlements/__PAGE__",
+    "/docs/settlements",
+    "/docs",
+    "/_index",
+    "/_head"
+  ]
+}
